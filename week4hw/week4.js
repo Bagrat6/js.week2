@@ -15,11 +15,23 @@ if(results.length > 0){
 let number1 = 19;
 let number2 = 42;
 let arr = [];
-function even(n1,n2){
-    for(let i = n1; i <= n2; i++){
-        if(i % 2 == 0){
-            arr.push(i);
+function evenDigits(num){
+    let temp = num;
+    while(temp !== 0){
+        if((temp%10) % 2 != 0){
+            return false;
+        }else{
+            temp /= 10;
+            temp = Math.floor(temp);
         }
+    }
+    return true;
+}
+function even(n1,n2){ 
+    for(let i = n1; i <= n2; i++){
+       if(evenDigits(i)){
+            arr.push(i);
+       } 
     }
 }
 even(number1,number2);
